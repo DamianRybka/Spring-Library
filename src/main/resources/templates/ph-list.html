@@ -22,18 +22,18 @@
             <div class="col-md-5" th:text="${house.getName()}"></div>
             <div class="row col-md-5">
                 <div class="col-md-4">
-                    <a th:href="@{'/ph/remove/'+${house.getId()}}" class="col-md-12">
+                    <a th:href="@{/ph/remove(phouseId=${house.getId()})}" class="col-md-12">
                         <button type="button" class="btn btn-danger col-md-12">Remove
                         </button>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a th:href="@{'/ph/edit/'+${house.getId()}}" class="col-md-12">
+                    <a th:href="@{/ph/edit(phouseId=${house.getId()})}" class="col-md-12">
                         <button type="button" class="btn btn-primary col-md-12">Edit</button>
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <a th:href="@{'/ph/books/'+${house.getId()}}" class="col-md-12">
+                    <a th:href="@{/ph/books(phouseId=${house.getId()})}" class="col-md-12">
                         <button type="button" class="btn btn-info col-md-12">List books</button>
                     </a>
                 </div>
