@@ -16,7 +16,7 @@
         <td th:text="${phouse.getId()}"></td>
         <td th:text="${phouse.getName()}"></td>
         <td>
-            <a th:href="@{/ph/remove(phouseId=${phouse.getId()})}">Remove</a>
+            <a th:if="${phouse.getBookSet().size() == 0}" th:href="@{/ph/remove(phouseId=${phouse.getId()})}">Remove</a>
             <a th:href="@{/ph/edit(phouseId=${phouse.getId()})}">Edit</a>
         </td>
     </tr>
