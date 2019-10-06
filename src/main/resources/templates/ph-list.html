@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Publishing houses list</title>
+</head>
+<body>
+<h1>Publishing Houses list</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    <tr th:each="phouse : ${phouses}">
+        <td th:text="${phouse.getId()}"></td>
+        <td th:text="${phouse.getName()}"></td>
+        <td>
+            <a th:href="@{/ph/remove(phouseId=${phouse.getId()})}">Remove</a>
+            <a th:href="@{/ph/edit(phouseId=${phouse.getId()})}">Edit</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

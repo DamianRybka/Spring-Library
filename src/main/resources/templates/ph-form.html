@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Publishing house form</title>
+</head>
+<body>
+<h1>Publishing house form</h1>
+<form th:action="@{/ph/add}" method="post" th:object="${edited_object}">
+    <input type="hidden" th:field="*{id}">
+    Name: <input type="text" th:field="*{name}"> <br/>
+
+    <input type="submit">
+</form>
+</body>
+</html>
