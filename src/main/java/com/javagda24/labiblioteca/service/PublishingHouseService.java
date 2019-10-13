@@ -29,8 +29,8 @@ public class PublishingHouseService {
         }
     }
 
-    public void save(PublishingHouse publishingHouse) {
-        publishingHouseRepository.save(publishingHouse);
+    public Long save(PublishingHouse publishingHouse) {
+         return publishingHouseRepository.save(publishingHouse).getId();
     }
 
     public Optional<PublishingHouse> getById(Long id) {
@@ -40,7 +40,7 @@ public class PublishingHouseService {
 
 //    ############################################ REST
 
-    public void addBook(AddBookRequest request) {
+    public Long addBook(AddBookRequest request) {
         if (!publishingHouseRepository.existsById(request.getPhId())) {
             throw new EntityNotFoundException("Publishing house ");
         }
@@ -48,7 +48,7 @@ public class PublishingHouseService {
         Book book = mapDtoToBook(request);
         book.setPublishingHouse(publishingHouseRepository.getOne(request.getPhId()));
 
-        bookRepository.save(book);
+        return bookRepository.save(book).getId();
     }
 
     public Book mapDtoToBook(AddBookRequest dto) {

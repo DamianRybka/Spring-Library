@@ -18,30 +18,30 @@ public class PHRestController {
 
     @PutMapping("/book")
     @ResponseStatus(HttpStatus.CREATED)
-    public void putBook(@RequestBody AddBookRequest request){
-        publishingHouseService.addBook(request);
+    public Long putBook(@RequestBody AddBookRequest request) {
+        return publishingHouseService.addBook(request);
     }
 
     @GetMapping("/list")
-    public List<PublishingHouse> list(){
+    public List<PublishingHouse> list() {
         return publishingHouseService.getAll();
     }
 
     @PutMapping("")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(PublishingHouse ph){
-        publishingHouseService.save(ph);
+    public Long add(PublishingHouse ph) {
+        return publishingHouseService.save(ph);
     }
 
     @PostMapping("")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void save(PublishingHouse ph){
+    public void save(PublishingHouse ph) {
         publishingHouseService.save(ph);
     }
 
     @PostMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void delete(@PathVariable("id") Long id){
+    public void delete(@PathVariable("id") Long id) {
         publishingHouseService.deleteById(id);
     }
 }
