@@ -1,5 +1,6 @@
 package com.javagda24.labiblioteca.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ public class PublishingHouse {
 
     private String name;
 
+    @JsonBackReference
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(mappedBy = "publishingHouse")

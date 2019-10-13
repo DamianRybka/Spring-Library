@@ -37,4 +37,18 @@ public class BookService {
     public Optional<Book> getById(Long id) {
         return bookRepository.findById(id);
     }
+
+
+
+//    ###################################### REST
+
+    public void save(Book book) {
+        bookRepository.save(book);
+    }
+
+    public void delete(Long id) {
+        if(bookRepository.existsById(id)){
+            bookRepository.deleteById(id);
+        }
+    }
 }

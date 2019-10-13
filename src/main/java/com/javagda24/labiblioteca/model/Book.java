@@ -17,9 +17,10 @@ public class Book {
     private Long id;
 
     private String title;
-    private int yearWritten;
+    private int yearWritten;  // year_written
 
     @Formula(value = "(year(now()) - year_written)")
+//    @Formula(value = "(year(now()) - year(year_written))")
     private Integer howOld;
 
     private int numberOfPages;
